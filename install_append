@@ -1,0 +1,2 @@
+mkdir -p %{buildroot}/usr/lib/systemd/system
+install -m 0644 tools/stunnel.service.in %{buildroot}/usr/lib/systemd/system/stunnel.service

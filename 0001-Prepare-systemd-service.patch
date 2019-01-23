@@ -1,0 +1,28 @@
+From fb6946d4181df9d846a4af1ad973b7fa3c60c1b7 Mon Sep 17 00:00:00 2001
+From: George T Kramer <george.t.kramer@intel.com>
+Date: Fri, 25 Jan 2019 16:42:48 -0800
+Subject: [PATCH] Prepare systemd service
+
+---
+ tools/stunnel.service.in | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/tools/stunnel.service.in b/tools/stunnel.service.in
+index 64ba7fa..8656d56 100644
+--- a/tools/stunnel.service.in
++++ b/tools/stunnel.service.in
+@@ -1,9 +1,9 @@
+ [Unit]
+ Description=TLS tunnel for network daemons
+-After=syslog.target network.target
++After=network.target
+ 
+ [Service]
+-ExecStart=@bindir@/stunnel
++ExecStart=/usr/bin/stunnel
+ Type=forking
+ 
+ [Install]
+-- 
+2.20.1
+
