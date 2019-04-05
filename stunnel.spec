@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x2EFC7FF0D416E014 (Michal.Trojnara@mirt.net)
 #
 Name     : stunnel
-Version  : 5.50
-Release  : 5
-URL      : https://www.stunnel.org/downloads/stunnel-5.50.tar.gz
-Source0  : https://www.stunnel.org/downloads/stunnel-5.50.tar.gz
-Source99 : https://www.stunnel.org/downloads/stunnel-5.50.tar.gz.asc
+Version  : 5.51
+Release  : 6
+URL      : https://www.stunnel.org/downloads/stunnel-5.51.tar.gz
+Source0  : https://www.stunnel.org/downloads/stunnel-5.51.tar.gz
+Source99 : https://www.stunnel.org/downloads/stunnel-5.51.tar.gz.asc
 Summary  : An TLS-encrypting socket wrapper
 Group    : Development/Tools
 License  : GPL-2.0 MPL-1.1
@@ -34,7 +34,6 @@ in conjunction with imapd to create an TLS secure IMAP server.
 Summary: bin components for the stunnel package.
 Group: Binaries
 Requires: stunnel-license = %{version}-%{release}
-Requires: stunnel-man = %{version}-%{release}
 Requires: stunnel-services = %{version}-%{release}
 
 %description bin
@@ -84,7 +83,7 @@ services components for the stunnel package.
 
 
 %prep
-%setup -q -n stunnel-5.50
+%setup -q -n stunnel-5.51
 %patch1 -p1
 
 %build
@@ -92,7 +91,8 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1548469412
+export SOURCE_DATE_EPOCH=1554508769
+export LDFLAGS="${LDFLAGS} -fno-lto"
 %configure --disable-static --disable-libwrap --disable-fips
 make  %{?_smp_mflags}
 
@@ -104,12 +104,10 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1548469412
+export SOURCE_DATE_EPOCH=1554508769
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/stunnel
-cp COPYING %{buildroot}/usr/share/package-licenses/stunnel/COPYING
 cp tools/plugins/SimpleFC/License.txt %{buildroot}/usr/share/package-licenses/stunnel/tools_plugins_SimpleFC_License.txt
-cp tools/stunnel.license %{buildroot}/usr/share/package-licenses/stunnel/tools_stunnel.license
 %make_install
 ## install_append content
 mkdir -p %{buildroot}/usr/lib/systemd/system
@@ -134,9 +132,7 @@ install -m 0644 tools/stunnel.service.in %{buildroot}/usr/lib/systemd/system/stu
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/stunnel/COPYING
 /usr/share/package-licenses/stunnel/tools_plugins_SimpleFC_License.txt
-/usr/share/package-licenses/stunnel/tools_stunnel.license
 
 %files man
 %defattr(0644,root,root,0755)
