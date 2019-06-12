@@ -5,12 +5,12 @@
 # Source0 file verified with key 0x2EFC7FF0D416E014 (Michal.Trojnara@mirt.net)
 #
 Name     : stunnel
-Version  : 5.54
-Release  : 9
-URL      : https://www.stunnel.org/downloads/stunnel-5.54.tar.gz
-Source0  : https://www.stunnel.org/downloads/stunnel-5.54.tar.gz
-Source99 : https://www.stunnel.org/downloads/stunnel-5.54.tar.gz.asc
-Summary  : A program that allows you to encrypt arbitrary TCP connections inside SSL
+Version  : 5.55
+Release  : 10
+URL      : https://www.stunnel.org/downloads/stunnel-5.55.tar.gz
+Source0  : https://www.stunnel.org/downloads/stunnel-5.55.tar.gz
+Source99 : https://www.stunnel.org/downloads/stunnel-5.55.tar.gz.asc
+Summary  : An TLS-encrypting socket wrapper
 Group    : Development/Tools
 License  : GPL-2.0 MPL-1.1
 Requires: stunnel-bin = %{version}-%{release}
@@ -83,7 +83,7 @@ services components for the stunnel package.
 
 
 %prep
-%setup -q -n stunnel-5.54
+%setup -q -n stunnel-5.55
 %patch1 -p1
 
 %build
@@ -91,7 +91,8 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1558019996
+export SOURCE_DATE_EPOCH=1560361119
+export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -110,7 +111,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1558019996
+export SOURCE_DATE_EPOCH=1560361119
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/stunnel
 cp COPYING %{buildroot}/usr/share/package-licenses/stunnel/COPYING
