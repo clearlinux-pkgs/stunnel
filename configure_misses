@@ -3,6 +3,9 @@ Configure miss: default group
 Configure miss: tcpd.h usability
 Configure miss: tcpd.h presence
 Configure miss: tcpd.h
+Configure miss: stropts.h usability
+Configure miss: stropts.h presence
+Configure miss: stropts.h
 Configure miss: library containing shl_load
 Configure miss: _getpty
 Configure miss: __makecontext_v2
