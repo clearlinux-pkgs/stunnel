@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x2EFC7FF0D416E014 (Michal.Trojnara@mirt.net)
 #
 Name     : stunnel
-Version  : 5.57
-Release  : 12
-URL      : https://www.stunnel.org/downloads/stunnel-5.57.tar.gz
-Source0  : https://www.stunnel.org/downloads/stunnel-5.57.tar.gz
-Source1  : https://www.stunnel.org/downloads/stunnel-5.57.tar.gz.asc
+Version  : 5.58
+Release  : 13
+URL      : https://www.stunnel.org/downloads/stunnel-5.58.tar.gz
+Source0  : https://www.stunnel.org/downloads/stunnel-5.58.tar.gz
+Source1  : https://www.stunnel.org/downloads/stunnel-5.58.tar.gz.asc
 Summary  : An TLS-encrypting socket wrapper
 Group    : Development/Tools
 License  : GPL-2.0 MPL-1.1
@@ -83,8 +83,8 @@ services components for the stunnel package.
 
 
 %prep
-%setup -q -n stunnel-5.57
-cd %{_builddir}/stunnel-5.57
+%setup -q -n stunnel-5.58
+cd %{_builddir}/stunnel-5.58
 %patch1 -p1
 
 %build
@@ -92,7 +92,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1607063448
+export SOURCE_DATE_EPOCH=1614141100
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -109,15 +109,15 @@ export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-make %{?_smp_mflags} check
+make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1607063448
+export SOURCE_DATE_EPOCH=1614141100
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/stunnel
-cp %{_builddir}/stunnel-5.57/COPYING.md %{buildroot}/usr/share/package-licenses/stunnel/b85eb20c66cd47ee3ba3c4f11804cd7b9159afbb
-cp %{_builddir}/stunnel-5.57/tools/plugins/SimpleFC/License.txt %{buildroot}/usr/share/package-licenses/stunnel/4a24471adac3747fb2f1534b03987306a836d751
-cp %{_builddir}/stunnel-5.57/tools/stunnel.license %{buildroot}/usr/share/package-licenses/stunnel/f57c251a6fa0e3f21ac2cd8e6edb1a215f48e0c6
+cp %{_builddir}/stunnel-5.58/COPYING.md %{buildroot}/usr/share/package-licenses/stunnel/a23d3f1afb08e4bbf6a892d9344ec8411dfc72a3
+cp %{_builddir}/stunnel-5.58/tools/plugins/SimpleFC/License.txt %{buildroot}/usr/share/package-licenses/stunnel/4a24471adac3747fb2f1534b03987306a836d751
+cp %{_builddir}/stunnel-5.58/tools/stunnel.license %{buildroot}/usr/share/package-licenses/stunnel/65bf79337cb93a4cf4e636eecf6a7160ff7aae93
 %make_install
 ## Remove excluded files
 rm -f %{buildroot}/usr/bin/stunnel3
@@ -144,8 +144,8 @@ mv %{buildroot}/usr/share/doc/stunnel/examples/stunnel.service %{buildroot}/usr/
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/stunnel/4a24471adac3747fb2f1534b03987306a836d751
-/usr/share/package-licenses/stunnel/b85eb20c66cd47ee3ba3c4f11804cd7b9159afbb
-/usr/share/package-licenses/stunnel/f57c251a6fa0e3f21ac2cd8e6edb1a215f48e0c6
+/usr/share/package-licenses/stunnel/65bf79337cb93a4cf4e636eecf6a7160ff7aae93
+/usr/share/package-licenses/stunnel/a23d3f1afb08e4bbf6a892d9344ec8411dfc72a3
 
 %files man
 %defattr(0644,root,root,0755)

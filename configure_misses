@@ -12,4 +12,5 @@ Configure miss: __makecontext_v2
 Configure miss: broken poll() implementation
 Configure miss: whether to enable FIPS support
 Configure miss: whether to enable TCP wrappers support
+Configure miss: OSSL_PROVIDER_available
 Configure miss: whether DH parameters need to be updated
