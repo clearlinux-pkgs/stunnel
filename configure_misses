@@ -5,6 +5,7 @@ Configure miss: _getpty
 Configure miss: broken poll() implementation
 Configure miss: default group
 Configure miss: library containing shl_load
+Configure miss: library containing yp_get_default_domain
 Configure miss: stropts.h
 Configure miss: stropts.h presence
 Configure miss: stropts.h usability
