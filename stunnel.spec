@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x2EFC7FF0D416E014 (Michal.Trojnara@mirt.net)
 #
 Name     : stunnel
-Version  : 5.63
-Release  : 18
-URL      : https://www.stunnel.org/downloads/stunnel-5.63.tar.gz
-Source0  : https://www.stunnel.org/downloads/stunnel-5.63.tar.gz
-Source1  : https://www.stunnel.org/downloads/stunnel-5.63.tar.gz.asc
+Version  : 5.64
+Release  : 19
+URL      : https://www.stunnel.org/downloads/stunnel-5.64.tar.gz
+Source0  : https://www.stunnel.org/downloads/stunnel-5.64.tar.gz
+Source1  : https://www.stunnel.org/downloads/stunnel-5.64.tar.gz.asc
 Summary  : An TLS-encrypting socket wrapper
 Group    : Development/Tools
 License  : GPL-2.0
@@ -94,8 +94,8 @@ services components for the stunnel package.
 
 
 %prep
-%setup -q -n stunnel-5.63
-cd %{_builddir}/stunnel-5.63
+%setup -q -n stunnel-5.64
+cd %{_builddir}/stunnel-5.64
 %patch1 -p1
 
 %build
@@ -103,7 +103,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1647381706
+export SOURCE_DATE_EPOCH=1651948456
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -124,11 +124,11 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1647381706
+export SOURCE_DATE_EPOCH=1651948456
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/stunnel
-cp %{_builddir}/stunnel-5.63/COPYING.md %{buildroot}/usr/share/package-licenses/stunnel/b258a68362e907b7c6e543832c211402035fd121
-cp %{_builddir}/stunnel-5.63/tools/stunnel.license %{buildroot}/usr/share/package-licenses/stunnel/bca24c139b07290a4d4ca3445bac1e3ddf5653fb
+cp %{_builddir}/stunnel-5.64/COPYING.md %{buildroot}/usr/share/package-licenses/stunnel/b258a68362e907b7c6e543832c211402035fd121
+cp %{_builddir}/stunnel-5.64/tools/stunnel.license %{buildroot}/usr/share/package-licenses/stunnel/bca24c139b07290a4d4ca3445bac1e3ddf5653fb
 %make_install
 ## Remove excluded files
 rm -f %{buildroot}*/usr/bin/stunnel3
