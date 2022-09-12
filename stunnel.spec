@@ -6,7 +6,7 @@
 #
 Name     : stunnel
 Version  : 5.65
-Release  : 20
+Release  : 21
 URL      : https://www.stunnel.org/downloads/stunnel-5.65.tar.gz
 Source0  : https://www.stunnel.org/downloads/stunnel-5.65.tar.gz
 Source1  : https://www.stunnel.org/downloads/stunnel-5.65.tar.gz.asc
