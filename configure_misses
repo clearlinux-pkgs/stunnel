@@ -1,5 +1,5 @@
 Configure miss: "/dev/ptc"
-Configure miss: OSSL_PROVIDER_available
+Configure miss: FIPS_mode_set
 Configure miss: __makecontext_v2
 Configure miss: _getpty
 Configure miss: broken poll() implementation

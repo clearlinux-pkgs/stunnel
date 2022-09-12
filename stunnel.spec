@@ -5,16 +5,15 @@
 # Source0 file verified with key 0x2EFC7FF0D416E014 (Michal.Trojnara@mirt.net)
 #
 Name     : stunnel
-Version  : 5.65
-Release  : 21
-URL      : https://www.stunnel.org/downloads/stunnel-5.65.tar.gz
-Source0  : https://www.stunnel.org/downloads/stunnel-5.65.tar.gz
-Source1  : https://www.stunnel.org/downloads/stunnel-5.65.tar.gz.asc
+Version  : 5.66
+Release  : 22
+URL      : https://www.stunnel.org/downloads/stunnel-5.66.tar.gz
+Source0  : https://www.stunnel.org/downloads/stunnel-5.66.tar.gz
+Source1  : https://www.stunnel.org/downloads/stunnel-5.66.tar.gz.asc
 Summary  : An TLS-encrypting socket wrapper
 Group    : Development/Tools
 License  : GPL-2.0
 Requires: stunnel-bin = %{version}-%{release}
-Requires: stunnel-data = %{version}-%{release}
 Requires: stunnel-lib = %{version}-%{release}
 Requires: stunnel-license = %{version}-%{release}
 Requires: stunnel-man = %{version}-%{release}
@@ -34,20 +33,11 @@ in conjunction with imapd to create an TLS secure IMAP server.
 %package bin
 Summary: bin components for the stunnel package.
 Group: Binaries
-Requires: stunnel-data = %{version}-%{release}
 Requires: stunnel-license = %{version}-%{release}
 Requires: stunnel-services = %{version}-%{release}
 
 %description bin
 bin components for the stunnel package.
-
-
-%package data
-Summary: data components for the stunnel package.
-Group: Data
-
-%description data
-data components for the stunnel package.
 
 
 %package doc
@@ -62,7 +52,6 @@ doc components for the stunnel package.
 %package lib
 Summary: lib components for the stunnel package.
 Group: Libraries
-Requires: stunnel-data = %{version}-%{release}
 Requires: stunnel-license = %{version}-%{release}
 
 %description lib
@@ -94,8 +83,8 @@ services components for the stunnel package.
 
 
 %prep
-%setup -q -n stunnel-5.65
-cd %{_builddir}/stunnel-5.65
+%setup -q -n stunnel-5.66
+cd %{_builddir}/stunnel-5.66
 %patch1 -p1
 
 %build
@@ -103,7 +92,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1658099360
+export SOURCE_DATE_EPOCH=1662999828
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -124,11 +113,11 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1658099360
+export SOURCE_DATE_EPOCH=1662999828
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/stunnel
-cp %{_builddir}/stunnel-5.65/COPYING.md %{buildroot}/usr/share/package-licenses/stunnel/b258a68362e907b7c6e543832c211402035fd121
-cp %{_builddir}/stunnel-5.65/tools/stunnel.license %{buildroot}/usr/share/package-licenses/stunnel/bca24c139b07290a4d4ca3445bac1e3ddf5653fb
+cp %{_builddir}/stunnel-%{version}/COPYING.md %{buildroot}/usr/share/package-licenses/stunnel/b258a68362e907b7c6e543832c211402035fd121 || :
+cp %{_builddir}/stunnel-%{version}/tools/stunnel.license %{buildroot}/usr/share/package-licenses/stunnel/bca24c139b07290a4d4ca3445bac1e3ddf5653fb || :
 %make_install
 ## Remove excluded files
 rm -f %{buildroot}*/usr/bin/stunnel3
@@ -143,10 +132,6 @@ mv %{buildroot}/usr/share/doc/stunnel/examples/stunnel.service %{buildroot}/usr/
 %files bin
 %defattr(-,root,root,-)
 /usr/bin/stunnel
-
-%files data
-%defattr(-,root,root,-)
-/usr/share/bash-completion/completions/stunnel.bash
 
 %files doc
 %defattr(0644,root,root,0755)
