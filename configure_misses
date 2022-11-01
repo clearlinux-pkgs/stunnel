@@ -7,11 +7,7 @@ Configure miss: default group
 Configure miss: library containing shl_load
 Configure miss: library containing yp_get_default_domain
 Configure miss: stropts.h
-Configure miss: stropts.h presence
-Configure miss: stropts.h usability
 Configure miss: tcpd.h
-Configure miss: tcpd.h presence
-Configure miss: tcpd.h usability
 Configure miss: whether DH parameters need to be updated
 Configure miss: whether to enable FIPS support
 Configure miss: whether to enable TCP wrappers support

@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x2EFC7FF0D416E014 (Michal.Trojnara@mirt.net)
 #
 Name     : stunnel
-Version  : 5.66
-Release  : 22
-URL      : https://www.stunnel.org/downloads/stunnel-5.66.tar.gz
-Source0  : https://www.stunnel.org/downloads/stunnel-5.66.tar.gz
-Source1  : https://www.stunnel.org/downloads/stunnel-5.66.tar.gz.asc
+Version  : 5.67
+Release  : 23
+URL      : https://www.stunnel.org/downloads/stunnel-5.67.tar.gz
+Source0  : https://www.stunnel.org/downloads/stunnel-5.67.tar.gz
+Source1  : https://www.stunnel.org/downloads/stunnel-5.67.tar.gz.asc
 Summary  : An TLS-encrypting socket wrapper
 Group    : Development/Tools
 License  : GPL-2.0
@@ -83,8 +83,8 @@ services components for the stunnel package.
 
 
 %prep
-%setup -q -n stunnel-5.66
-cd %{_builddir}/stunnel-5.66
+%setup -q -n stunnel-5.67
+cd %{_builddir}/stunnel-5.67
 %patch1 -p1
 
 %build
@@ -92,7 +92,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1662999828
+export SOURCE_DATE_EPOCH=1667335453
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -113,7 +113,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1662999828
+export SOURCE_DATE_EPOCH=1667335453
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/stunnel
 cp %{_builddir}/stunnel-%{version}/COPYING.md %{buildroot}/usr/share/package-licenses/stunnel/b258a68362e907b7c6e543832c211402035fd121 || :
