@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x2EFC7FF0D416E014 (Michal.Trojnara@mirt.net)
 #
 Name     : stunnel
-Version  : 5.68
-Release  : 24
-URL      : https://www.stunnel.org/downloads/stunnel-5.68.tar.gz
-Source0  : https://www.stunnel.org/downloads/stunnel-5.68.tar.gz
-Source1  : https://www.stunnel.org/downloads/stunnel-5.68.tar.gz.asc
+Version  : 5.69
+Release  : 25
+URL      : https://www.stunnel.org/downloads/stunnel-5.69.tar.gz
+Source0  : https://www.stunnel.org/downloads/stunnel-5.69.tar.gz
+Source1  : https://www.stunnel.org/downloads/stunnel-5.69.tar.gz.asc
 Summary  : An TLS-encrypting socket wrapper
 Group    : Development/Tools
 License  : GPL-2.0
@@ -75,8 +75,8 @@ services components for the stunnel package.
 
 
 %prep
-%setup -q -n stunnel-5.68
-cd %{_builddir}/stunnel-5.68
+%setup -q -n stunnel-5.69
+cd %{_builddir}/stunnel-5.69
 %patch1 -p1
 
 %build
@@ -84,7 +84,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1675887750
+export SOURCE_DATE_EPOCH=1677980849
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -105,7 +105,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 make %{?_smp_mflags} check || :
 
 %install
-export SOURCE_DATE_EPOCH=1675887750
+export SOURCE_DATE_EPOCH=1677980849
 rm -rf %{buildroot}
 %make_install
 ## Remove excluded files
