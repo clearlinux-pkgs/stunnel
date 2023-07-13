@@ -1,13 +1,26 @@
 Configure miss: "/dev/ptc"
+Configure miss: "/dev/ptc"
+Configure miss: FIPS_mode_set
 Configure miss: FIPS_mode_set
 Configure miss: __makecontext_v2
+Configure miss: __makecontext_v2
+Configure miss: _getpty
 Configure miss: _getpty
 Configure miss: broken poll() implementation
+Configure miss: broken poll() implementation
+Configure miss: default group
 Configure miss: default group
 Configure miss: library containing shl_load
+Configure miss: library containing shl_load
+Configure miss: library containing yp_get_default_domain
 Configure miss: library containing yp_get_default_domain
 Configure miss: stropts.h
+Configure miss: stropts.h
+Configure miss: tcpd.h
 Configure miss: tcpd.h
 Configure miss: whether DH parameters need to be updated
+Configure miss: whether DH parameters need to be updated
 Configure miss: whether to enable FIPS support
+Configure miss: whether to enable FIPS support
+Configure miss: whether to enable TCP wrappers support
 Configure miss: whether to enable TCP wrappers support
