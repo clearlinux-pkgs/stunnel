@@ -24,3 +24,5 @@ Configure miss: whether to enable FIPS support
 Configure miss: whether to enable FIPS support
 Configure miss: whether to enable TCP wrappers support
 Configure miss: whether to enable TCP wrappers support
+Configure miss: x86_64-generic-linux-gnu-file
+Configure miss: x86_64-generic-linux-gnu-file
