@@ -10,10 +10,16 @@ Configure miss: broken poll() implementation
 Configure miss: broken poll() implementation
 Configure miss: default group
 Configure miss: default group
+Configure miss: gcc option to enable large file support
+Configure miss: gcc option to enable large file support
+Configure miss: library containing mi_malloc
+Configure miss: library containing mi_malloc
 Configure miss: library containing shl_load
 Configure miss: library containing shl_load
 Configure miss: library containing yp_get_default_domain
 Configure miss: library containing yp_get_default_domain
+Configure miss: mimalloc.h
+Configure miss: mimalloc.h
 Configure miss: stropts.h
 Configure miss: stropts.h
 Configure miss: tcpd.h
